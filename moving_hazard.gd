@@ -12,6 +12,4 @@ func _ready() -> void:
 	tween.tween_property(self, "global_position", global_position, duration)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+
