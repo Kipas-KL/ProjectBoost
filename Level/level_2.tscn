@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://co3xow2v1qjh"]
+[gd_scene load_steps=8 format=3 uid="uid://co3xow2v1qjh"]
 
 [ext_resource type="Script" path="res://Level/landing_pad.gd" id="1_m6scx"]
 [ext_resource type="PackedScene" uid="uid://wpy3of26ra3g" path="res://player.tscn" id="2_5txb7"]
 [ext_resource type="PackedScene" uid="uid://c7mamlrnwuvrh" path="res://Background.tscn" id="3_heqs3"]
+[ext_resource type="Theme" uid="uid://d0oy6wnhurja0" path="res://new_theme.tres" id="4_68w6g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l17l8"]
 albedo_color = Color(1, 0.466951, 0.992125, 1)
@@ -42,3 +43,45 @@ transform = Transform3D(1, 0, 0, 0, 0.976672, 0.214735, 0, -0.214735, 0.976672, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1.125, 0)
 
 [node name="Floor" parent="." instance=ExtResource("3_heqs3")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_68w6g")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Level"
+
+[node name="Control" type="Control" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "2"

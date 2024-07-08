@@ -6,10 +6,10 @@ albedo_color = Color(0.470482, 0.321769, 0.208081, 1)
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2w6fi"]
 sky_top_color = Color(0.0428223, 0.0484942, 0.257184, 1)
 sky_horizon_color = Color(0.240994, 0.0289671, 0.388349, 1)
-sky_curve = 0.0445952
+sky_curve = 0.0512267
 ground_bottom_color = Color(0.0523268, 0.0813789, 0.197836, 1)
 ground_horizon_color = Color(0.239216, 0.027451, 0.388235, 1)
-ground_curve = 0.0146409
+ground_curve = 0.0512
 
 [sub_resource type="Sky" id="Sky_7iah1"]
 sky_material = SubResource("ProceduralSkyMaterial_2w6fi")
