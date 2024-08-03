@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1vvcq3nfsnkf"]
+
+[ext_resource type="Script" path="res://Level/landing_pad.gd" id="1_ykmx5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fchfn"]
+albedo_color = Color(0.0784, 0.49, 0.0784, 1)
+
+[node name="LandingPad" type="CSGBox3D"]
+transform = Transform3D(1.125, 0, 0, 0, 1.125, 0, 0, 0, 1.125, 8, 1.07, 0)
+use_collision = true
+size = Vector3(2, 0.25, 2)
+material = SubResource("StandardMaterial3D_fchfn")
+script = ExtResource("1_ykmx5")
+file_path = "res://Level/level_4.tscn"

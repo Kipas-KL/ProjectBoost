@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://orcd3xoup27v"]
+
+[ext_resource type="ArrayMesh" uid="uid://bfyj0kaw4jhi6" path="res://LevelParts/006/Platform_006.res" id="1_dn1df"]
+[ext_resource type="PackedScene" uid="uid://ux6ivcx1ovdp" path="res://Particles/booster_particles.tscn" id="2_4a1ws"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4kll6"]
+size = Vector3(13.6, 1.05645, 8)
+
+[node name="Plattform" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+mesh = ExtResource("1_dn1df")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.00769372, 0)
+shape = SubResource("BoxShape3D_4kll6")
+
+[node name="BoosterParticles" parent="." instance=ExtResource("2_4a1ws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.66052, -0.625, 0)
+
+[node name="BoosterParticles2" parent="." instance=ExtResource("2_4a1ws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.67629, -0.625, 0)

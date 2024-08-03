@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://4rbnflp2knd5"]
+
+[ext_resource type="ArrayMesh" uid="uid://bfyj0kaw4jhi6" path="res://LevelParts/006/Platform_006.res" id="1_tw0c1"]
+
+[node name="Platform006" type="MeshInstance3D"]
+transform = Transform3D(0.725, 0, 0, 0, 0.725, 0, 0, 0, 0.725, 0.00262499, 5.34789, -0.689839)
+mesh = ExtResource("1_tw0c1")
