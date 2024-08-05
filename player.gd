@@ -5,8 +5,8 @@ extends RigidBody3D
 ## How fast rotate the object.
 @export var torque_thrust: float = 100.0
 
-var is_transitioning: bool = false
 
+var is_transitioning: bool = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,7 +41,7 @@ func _on_body_entered(body: Node) -> void:
 		if "Goal" in body.get_groups():
 			complete_level(body.file_path)
 			
-		if "Hazard" in body.get_groups():
+		elif "Hazard" in body.get_groups():
 			crash_sequence()
 		
 func crash_sequence() -> void:
@@ -58,6 +58,16 @@ func crash_sequence() -> void:
 	tween.tween_interval(2.5)
 	tween.tween_callback(get_tree().reload_current_scene)
 	
+	if Globalstate.get_difficulty() == "hard":
+		tween.tween_callback(restart_game_from_start)
+	else:
+		tween.tween_callback(get_tree().reload_current_scene)
+
+
+func restart_game_from_start() -> void:
+	get_tree().change_scene_to_file("res://Level/level_001.tscn")
+
+
 func complete_level(next_level_file: String) -> void:
 	print("Level Complete")
 	%SuccessAudio.play()
@@ -74,7 +84,7 @@ func complete_level(next_level_file: String) -> void:
 		get_tree().change_scene_to_file.bind(next_level_file)
 	)
 		
-		
+
 		
 		
 		
