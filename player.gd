@@ -5,7 +5,6 @@ extends RigidBody3D
 ## How fast rotate the object.
 @export var torque_thrust: float = 100.0
 
-
 var is_transitioning: bool = false
 
 
@@ -59,13 +58,13 @@ func crash_sequence() -> void:
 	tween.tween_callback(get_tree().reload_current_scene)
 	
 	if Globalstate.get_difficulty() == "hard":
-		tween.tween_callback(restart_game_from_start)
+		tween.tween_callback(get_tree().change_scene_to_file.bind("res://Level/level_001.tscn"))
 	else:
 		tween.tween_callback(get_tree().reload_current_scene)
 
 
-func restart_game_from_start() -> void:
-	get_tree().change_scene_to_file("res://Level/level_001.tscn")
+#func restart_game_from_start() -> void:
+	#get_tree().change_scene_to_file()
 
 
 func complete_level(next_level_file: String) -> void:
