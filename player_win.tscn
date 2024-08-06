@@ -1,0 +1,139 @@
+[gd_scene load_steps=8 format=3 uid="uid://vkwpkfqtdp5h"]
+
+[ext_resource type="Theme" uid="uid://bhdofd1qu67k4" path="res://Theme.tres" id="1_tgmjp"]
+[ext_resource type="Script" path="res://player_win.gd" id="2_a52e7"]
+[ext_resource type="Texture2D" uid="uid://15ou5a27aa6a" path="res://Assets/Button-klein-2.png" id="2_nuj4m"]
+[ext_resource type="Texture2D" uid="uid://dv2uqts4r07bu" path="res://Assets/ButtonHover-klein-2.png" id="3_n8b42"]
+[ext_resource type="FontFile" uid="uid://cbuiyewalt8qy" path="res://fonts/glitch-inside-font/GlitchInside-0Wjro.otf" id="3_ws8m3"]
+[ext_resource type="FontFile" uid="uid://c572c8en467uw" path="res://fonts/star-wars-fonts/fonts/ThemirutrialRegular-VGlxZ.otf" id="4_scam8"]
+
+[sub_resource type="Theme" id="Theme_y0qso"]
+default_font = ExtResource("3_ws8m3")
+
+[node name="PlayerWin" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tgmjp")
+script = ExtResource("2_a52e7")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.719
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.0879822
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_tgmjp")
+theme_override_constants/v_separation = 13
+
+[node name="Panel" type="Panel" parent="MarginContainer2/GridContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/GridContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -11.5
+offset_right = 38.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_y0qso")
+theme_override_constants/separation = 0
+
+[node name="Minutes" type="Label" parent="MarginContainer2/GridContainer/Panel/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Seconds" type="Label" parent="MarginContainer2/GridContainer/Panel/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00."
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Msecs" type="Label" parent="MarginContainer2/GridContainer/Panel/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="RestartBtn3" type="TextureButton" parent="MarginContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_nuj4m")
+texture_hover = ExtResource("3_n8b42")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MarginContainer2/GridContainer/RestartBtn3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "highscore"
+
+[node name="QuitBtn" type="TextureButton" parent="MarginContainer2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_nuj4m")
+texture_hover = ExtResource("3_n8b42")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="MarginContainer2/GridContainer/QuitBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "MENU"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.296
+offset_bottom = 0.192001
+grow_horizontal = 2
+theme_override_constants/margin_top = 115
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_scam8")
+theme_override_font_sizes/font_size = 101
+text = "you_win"
+horizontal_alignment = 1

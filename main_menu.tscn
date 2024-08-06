@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8gvtv0nosgct"]
+[gd_scene load_steps=7 format=3 uid="uid://c8gvtv0nosgct"]
 
+[ext_resource type="Theme" uid="uid://bhdofd1qu67k4" path="res://Theme.tres" id="1_2jprm"]
 [ext_resource type="Texture2D" uid="uid://djr5hpp3xpt56" path="res://Assets/protüp.png" id="1_kftuy"]
 [ext_resource type="Script" path="res://mainmenu.gd" id="1_uchv0"]
 [ext_resource type="Texture2D" uid="uid://15ou5a27aa6a" path="res://Assets/Button-klein-2.png" id="2_s2l3p"]
 [ext_resource type="Texture2D" uid="uid://dv2uqts4r07bu" path="res://Assets/ButtonHover-klein-2.png" id="3_1it73"]
+[ext_resource type="FontFile" uid="uid://c5oopxdb5cqu7" path="res://fonts/star-wars-fonts/fonts/ThemiruTrialRegular-JRgXj.ttf" id="4_wd2rb"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_2jprm")
 script = ExtResource("1_uchv0")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -35,6 +38,19 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0687983, 0.0687983, 0.0687982, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("4_wd2rb")
+theme_override_font_sizes/font_size = 55
+text = "project_boost"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -46,6 +62,10 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../OptionButton")
+focus_next = NodePath("../OptionButton")
+focus_previous = NodePath("../QuitButton")
 texture_normal = ExtResource("2_s2l3p")
 texture_hover = ExtResource("3_1it73")
 stretch_mode = 0
@@ -63,7 +83,7 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Start"
+text = "START"
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -72,6 +92,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../StartButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
 texture_normal = ExtResource("2_s2l3p")
 texture_hover = ExtResource("3_1it73")
 
@@ -88,7 +110,7 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Rules
+text = "RULES
 "
 
 [node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
@@ -98,8 +120,11 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../OptionButton")
+focus_neighbor_bottom = NodePath("../StartButton")
 texture_normal = ExtResource("2_s2l3p")
 texture_hover = ExtResource("3_1it73")
+texture_focused = ExtResource("3_1it73")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/QuitButton"]
 layout_mode = 1
@@ -114,8 +139,7 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Exit
-"
+text = "EXIT"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]

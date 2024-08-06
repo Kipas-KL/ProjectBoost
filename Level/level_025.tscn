@@ -102,13 +102,13 @@ layout_mode = 2
 layout_mode = 2
 text = "025"
 
-[node name="Landingzone" type="StaticBody3D" parent="." groups=["Goal"]]
+[node name="Landingzone" type="StaticBody3D" parent="." groups=["Win"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57464, -0.126239, 0)
 script = ExtResource("3_se1vj")
-file_path = "res://Level/level_001.tscn"
+file_path = "res://player_win.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Landingzone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.99365, 0.729839, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.99365, 0.736135, 0)
 shape = SubResource("CylinderShape3D_peyen")
 
 [node name="Landingpad2" parent="Landingzone" groups=["Hazard"] instance=ExtResource("4_hu15w")]

@@ -105,7 +105,7 @@ text = "023"
 [node name="Landingzone" type="StaticBody3D" parent="." groups=["Goal"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.941811, 7.385, 0)
 script = ExtResource("3_se1vj")
-file_path = "res://Level/level_001.tscn"
+file_path = "res://Level/level_024.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Landingzone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.99365, 0.729839, 0)

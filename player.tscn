@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://wpy3of26ra3g"]
+[gd_scene load_steps=29 format=3 uid="uid://wpy3of26ra3g"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_5gotk"]
 [ext_resource type="AudioStream" uid="uid://bxnc7u486n32b" path="res://Audio/SFX - Death Explosion.ogg" id="2_ygndw"]
@@ -10,6 +10,9 @@
 [ext_resource type="Material" uid="uid://boc4ne8fbrxxh" path="res://ShipRedMaterial.tres" id="8_lfbey"]
 [ext_resource type="Material" uid="uid://df3jhqs2rxqbb" path="res://ShipWhiteMaterial.tres" id="8_voe5c"]
 [ext_resource type="Material" uid="uid://drkgh754y2l06" path="res://ShipBlueMaterial.tres" id="9_duuak"]
+[ext_resource type="PackedScene" uid="uid://vb4i1dbr80fr" path="res://pause.tscn" id="11_57alq"]
+[ext_resource type="Script" path="res://panel.gd" id="12_68to0"]
+[ext_resource type="FontFile" uid="uid://cbuiyewalt8qy" path="res://fonts/glitch-inside-font/GlitchInside-0Wjro.otf" id="12_sugey"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_dmsd6"]
 
@@ -73,6 +76,9 @@ height = 0.04
 [sub_resource type="TorusMesh" id="TorusMesh_ltw2h"]
 inner_radius = 0.46
 outer_radius = 0.355
+
+[sub_resource type="Theme" id="Theme_c2kms"]
+default_font = ExtResource("12_sugey")
 
 [node name="Player" type="RigidBody3D"]
 axis_lock_linear_z = true
@@ -205,5 +211,57 @@ mesh = SubResource("CylinderMesh_4e1wg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.382495, 0)
 material_override = ExtResource("9_duuak")
 mesh = SubResource("TorusMesh_ltw2h")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_57alq")]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -98.0
+offset_top = 9.0
+offset_right = -22.0
+offset_bottom = 31.0
+grow_horizontal = 0
+script = ExtResource("12_68to0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -11.5
+offset_right = 38.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_c2kms")
+theme_override_constants/separation = 0
+
+[node name="Minutes" type="Label" parent="CanvasLayer/Panel/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Seconds" type="Label" parent="CanvasLayer/Panel/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00."
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Msecs" type="Label" parent="CanvasLayer/Panel/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
