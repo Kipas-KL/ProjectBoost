@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 	%Minutes.text = "%02d:" % GlobalTimer.minutes
 	%Seconds.text = "%02d." % GlobalTimer.seconds
 	%Msecs.text = "%03d" % GlobalTimer.msec
-	print(GlobalTimer.time)
+	#print(GlobalTimer.time)
 	
 
 
