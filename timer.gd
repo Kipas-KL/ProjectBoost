@@ -13,3 +13,8 @@ func add_time(delta):
 	
 	#print(time)
 	
+func reset_timer():
+	time = 0.0
+	minutes = 0
+	seconds = 0
+	msec = 0
