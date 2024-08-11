@@ -13,7 +13,10 @@ func _ready() -> void:
 	%Minutes.text = "%02d:" % GlobalTimer.minutes
 	%Seconds.text = "%02d." % GlobalTimer.seconds
 	%Msecs.text = "%02d" % GlobalTimer.msec
-
+	
+	#Globalstate.save_to_file(name, Globalstate.minutes, Globalstate.secondes, Globalstate.msec)
+	Globalstate.load_from_file()
+ 
 
 
 
@@ -71,3 +74,7 @@ func _ready() -> void:
 		#score_panel.get_child(1).text = str(highscores[entry]).pad_zeros(3)
 		#%VBoxContainer.add_child(score_panel)
 
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://main_menu.tscn")

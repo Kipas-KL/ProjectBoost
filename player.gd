@@ -109,7 +109,7 @@ func game_win(next_level_file: String) -> void:
 	tween.tween_callback(
 		get_tree().change_scene_to_file.bind(next_level_file)
 	)
-	
+	Globalstate.save_to_file(name, GlobalTimer.minutes, GlobalTimer.seconds, GlobalTimer.msec)
 
 
 
