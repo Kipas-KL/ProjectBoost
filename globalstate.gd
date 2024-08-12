@@ -5,7 +5,7 @@ var player_name = ""
 var save_data: Dictionary = {}
 var highscores: Array = []
 
-#var highscores: Dictionary
+
 
 
 func set_difficulty(diff: String) -> void:
@@ -25,7 +25,7 @@ func save_to_file(name: String, minutes: int, seconds: int, msec: int) -> void:
 	
 	highscores.append(new_score)
 	
-	highscores.sort_custom(_compare_scores)
+	#highscores.sort_custom(_compare_scores)
 	
 	if highscores.size() > 10:
 		highscores.pop_back()
@@ -42,6 +42,9 @@ func load_from_file() -> void:
 			highscores = JSON.parse_string(data)
 			if typeof(highscores) != TYPE_ARRAY:
 				highscores = []  # Fallback, falls die Daten keine gültige Liste sind
+			else:
+				highscores.sort_custom(_compare_scores)
+				print(highscores)
 		file.close()
 		
 		
@@ -51,10 +54,7 @@ func _compare_scores(a: Dictionary, b: Dictionary) -> int:
 	# Vergleichsfunktion zum Sortieren der Highscores
 	var time_a = a["minutes"] * 60000 + a["seconds"] * 1000 + a["msec"]
 	var time_b = b["minutes"] * 60000 + b["seconds"] * 1000 + b["msec"]
-	return time_a - time_b
-
-
-
+	return time_a - time_b 
 
 
 
