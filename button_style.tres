@@ -1,0 +1,26 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://ihl6trp21nku"]
+
+[ext_resource type="FontFile" uid="uid://cujnvjrvk8y4" path="res://fonts/andromeda-font/Andromeda-eR2n.ttf" id="1_y6q1k"]
+[ext_resource type="Texture2D" uid="uid://dbf2d0mmen2i2" path="res://Assets/ButtonHover_2.png" id="2_vlhte"]
+[ext_resource type="StyleBox" uid="uid://xk1d8vuphewj" path="res://butoon_style.tres" id="3_0u33q"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_loe03"]
+texture = ExtResource("2_vlhte")
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gjn20"]
+texture = ExtResource("2_vlhte")
+expand_margin_left = 18.0
+expand_margin_top = 18.0
+expand_margin_right = 18.0
+expand_margin_bottom = 18.0
+
+[resource]
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("1_y6q1k")
+Button/styles/hover = SubResource("StyleBoxTexture_loe03")
+Button/styles/normal = ExtResource("3_0u33q")
+Button/styles/pressed = SubResource("StyleBoxTexture_gjn20")

@@ -2,13 +2,12 @@
 
 [ext_resource type="Theme" uid="uid://bhdofd1qu67k4" path="res://Theme.tres" id="1_a0a5b"]
 [ext_resource type="Script" path="res://PauseMenu.gd" id="2_763sv"]
-[ext_resource type="Texture2D" uid="uid://15ou5a27aa6a" path="res://Assets/Button-klein-2.png" id="2_lxvfd"]
 [ext_resource type="FontFile" uid="uid://c572c8en467uw" path="res://fonts/star-wars-fonts/fonts/ThemirutrialRegular-VGlxZ.otf" id="3_7olyg"]
-[ext_resource type="Texture2D" uid="uid://dv2uqts4r07bu" path="res://Assets/ButtonHover-klein-2.png" id="3_k6mll"]
+[ext_resource type="Theme" uid="uid://ihl6trp21nku" path="res://button_style.tres" id="4_nf48b"]
+[ext_resource type="PackedScene" uid="uid://dkevmljhump2p" path="res://volume_slider.tscn" id="6_fgmum"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_a0a5b")
 script = ExtResource("2_763sv")
+metadata/_edit_vertical_guides_ = [484.0, 668.0]
 
 [node name="Back" type="ColorRect" parent="."]
 layout_mode = 1
@@ -52,121 +52,296 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 505
+theme_override_constants/margin_top = 158
+theme_override_constants/margin_right = 505
+theme_override_constants/margin_bottom = 130
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("3_7olyg")
+text = "paused"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control41" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control5" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control6" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control7" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="resume_btn" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_nf48b")
+text = "resume"
+
+[node name="Control8" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control15" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control16" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control17" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control18" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control42" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control43" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control9" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control10" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control11" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control12" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control13" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control14" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="restart_btn_3" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_nf48b")
+text = "restart"
+
+[node name="Control19" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control20" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control21" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control44" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control45" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control22" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control23" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control24" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control25" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control26" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control27" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control28" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control29" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="settings_btn" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_nf48b")
+text = "settings"
+
+[node name="Control30" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control31" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control32" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control33" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control46" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control47" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control34" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control35" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control36" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control37" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control38" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control39" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control40" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="quit_btn" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("4_nf48b")
+text = "menu"
+
+[node name="SettingsMenu" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tester" type="ColorRect" parent="SettingsMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -92.0
-offset_top = -165.5
-offset_right = 92.0
-offset_bottom = 165.5
+offset_left = -140.0
+offset_top = -196.0
+offset_right = 140.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.00278023, 0.081248, 0.133222, 1)
+
+[node name="TextureRect" type="TextureRect" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -142.0
+offset_right = 83.0
+offset_bottom = 142.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_a0a5b")
 theme_override_constants/v_separation = 13
 
-[node name="Label" type="Label" parent="GridContainer"]
+[node name="Label" type="Label" parent="SettingsMenu/GridContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_7olyg")
-text = "paused"
+text = "settings"
 horizontal_alignment = 1
 
-[node name="ResumeBtn" type="TextureButton" parent="GridContainer"]
+[node name="master_label" type="Label" parent="SettingsMenu/GridContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("2_lxvfd")
-texture_hover = ExtResource("3_k6mll")
-stretch_mode = 0
+text = "main volume"
+horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="GridContainer/ResumeBtn"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "RESUME"
-
-[node name="SettingsBtn" type="TextureButton" parent="GridContainer"]
+[node name="Master" parent="SettingsMenu/GridContainer" instance=ExtResource("6_fgmum")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("2_lxvfd")
-texture_hover = ExtResource("3_k6mll")
-stretch_mode = 0
+value = 1.0
+bus_name = "Master"
 
-[node name="Label" type="Label" parent="GridContainer/SettingsBtn"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "SETTINGS"
-
-[node name="RestartBtn3" type="TextureButton" parent="GridContainer"]
+[node name="music_label" type="Label" parent="SettingsMenu/GridContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("2_lxvfd")
-texture_hover = ExtResource("3_k6mll")
-stretch_mode = 0
+text = "music volume"
 
-[node name="Label" type="Label" parent="GridContainer/RestartBtn3"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "RESTART	"
-
-[node name="QuitBtn" type="TextureButton" parent="GridContainer"]
+[node name="Music" parent="SettingsMenu/GridContainer" instance=ExtResource("6_fgmum")]
 layout_mode = 2
-size_flags_horizontal = 4
+value = 1.0
+bus_name = "Music"
+
+[node name="sfx_label2" type="Label" parent="SettingsMenu/GridContainer"]
+layout_mode = 2
+text = "sound volume"
+
+[node name="sfx" parent="SettingsMenu/GridContainer" instance=ExtResource("6_fgmum")]
+layout_mode = 2
+value = 1.0
+bus_name = "sfx"
+
+[node name="Control" type="Control" parent="SettingsMenu/GridContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="SettingsMenu/GridContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsMenu/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="BackBtn" type="Button" parent="SettingsMenu/GridContainer/MarginContainer"]
+layout_mode = 2
 size_flags_vertical = 4
-texture_normal = ExtResource("2_lxvfd")
-texture_hover = ExtResource("3_k6mll")
-stretch_mode = 0
+theme = ExtResource("4_nf48b")
+text = "back"
 
-[node name="Label" type="Label" parent="GridContainer/QuitBtn"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "MENU"
-
-[connection signal="pressed" from="GridContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]
-[connection signal="pressed" from="GridContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
-[connection signal="pressed" from="GridContainer/RestartBtn3" to="." method="_on_restart_btn_3_pressed"]
-[connection signal="pressed" from="GridContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/resume_btn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/restart_btn_3" to="." method="_on_restart_btn_3_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/settings_btn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/quit_btn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="SettingsMenu/GridContainer/MarginContainer/BackBtn" to="." method="_on_back_btn_pressed"]

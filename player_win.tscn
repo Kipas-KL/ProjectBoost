@@ -1,12 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://vkwpkfqtdp5h"]
+[gd_scene load_steps=7 format=3 uid="uid://vkwpkfqtdp5h"]
 
+[ext_resource type="Theme" uid="uid://bfrt6glwap1w1" path="res://leaderboard_theme.tres" id="1_fw1bk"]
 [ext_resource type="Theme" uid="uid://bhdofd1qu67k4" path="res://Theme.tres" id="1_tgmjp"]
 [ext_resource type="Script" path="res://player_win.gd" id="2_a52e7"]
-[ext_resource type="FontFile" uid="uid://cbuiyewalt8qy" path="res://fonts/glitch-inside-font/GlitchInside-0Wjro.otf" id="3_ws8m3"]
+[ext_resource type="Texture2D" uid="uid://b4cgiow2jvjr5" path="res://Assets/DALL·E 2024-08-14 10.24.27 - A subtle, stylized starry sky background in a fullscreen horizontal format, with dark, jagged mountains added in the foreground instead of hills. The .webp" id="3_22ojm"]
 [ext_resource type="FontFile" uid="uid://c572c8en467uw" path="res://fonts/star-wars-fonts/fonts/ThemirutrialRegular-VGlxZ.otf" id="4_scam8"]
-
-[sub_resource type="Theme" id="Theme_y0qso"]
-default_font = ExtResource("3_ws8m3")
+[ext_resource type="Theme" uid="uid://ihl6trp21nku" path="res://button_style.tres" id="6_2cp6x"]
 
 [node name="PlayerWin" type="Control"]
 layout_mode = 3
@@ -15,8 +14,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_tgmjp")
+theme = ExtResource("1_fw1bk")
 script = ExtResource("2_a52e7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_22ojm")
+expand_mode = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -48,40 +57,47 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_tgmjp")
+theme_override_font_sizes/font_size = 30
 text = "your score"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme = SubResource("Theme_y0qso")
+theme_override_constants/margin_left = 350
+theme_override_constants/margin_right = 350
 
-[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("1_fw1bk")
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("1_tgmjp")
-text = "Luca"
+text = "player"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Minutes" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Minutes" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "00:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Seconds" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Seconds" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "00."
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Msecs" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Msecs" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "00"
@@ -95,8 +111,10 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="diff_label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "highscores"
 horizontal_alignment = 1
 
@@ -109,7 +127,7 @@ theme_override_constants/margin_right = 250
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
-theme = SubResource("Theme_y0qso")
+theme = ExtResource("1_fw1bk")
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/LeaderboardContainer"]
@@ -145,10 +163,26 @@ text = "00"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control5" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
-text = "MENU"
+theme_override_constants/margin_left = 450
+theme_override_constants/margin_right = 450
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("6_2cp6x")
+text = "menu"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
@@ -181,4 +215,4 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HighscorePanel/ScrollContainer"]
 layout_mode = 2
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer2/Button" to="." method="_on_button_pressed"]

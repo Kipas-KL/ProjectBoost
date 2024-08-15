@@ -3,9 +3,8 @@ extends Node
 var difficulty: String = "normal"
 var player_name = ""
 var save_data: Dictionary = {}
-var highscores: Array = []
-
-
+var highscores_normal: Array = []
+var highscores_hard: Array = []
 
 
 func set_difficulty(diff: String) -> void:
@@ -14,6 +13,12 @@ func set_difficulty(diff: String) -> void:
 func get_difficulty() -> String:
 	return difficulty
 
+func get_highscores() -> Array:
+	if difficulty == "normal":
+		return highscores_normal
+	elif difficulty == "hard":
+		return highscores_hard
+	return []
 
 func save_to_file(name: String, minutes: int, seconds: int, msec: int) -> void:
 	var new_score: Dictionary = {
@@ -23,38 +28,85 @@ func save_to_file(name: String, minutes: int, seconds: int, msec: int) -> void:
 		"msec": msec
 	}
 	
-	highscores.append(new_score)
+	var current_highscores = get_highscores()
+	current_highscores.append(new_score)
 	
-	#highscores.sort_custom(_compare_scores)
+	current_highscores.sort_custom(_compare_scores)
 	
-	if highscores.size() > 10:
-		highscores.pop_back()
+	if current_highscores.size() > 10:
+		current_highscores.pop_back()
 
-	var file = FileAccess.open("user://highscore.json", FileAccess.WRITE)
-	file.store_string(JSON.stringify(highscores))
+	var file_path = "user://highscore_%s.json" % difficulty
+	var file = FileAccess.open(file_path, FileAccess.WRITE)
+	file.store_string(JSON.stringify(current_highscores))
 	file.close()
+	
 
+
+func get_top_score(difficulty: String) -> Dictionary:
+	var highscores = []
+	if difficulty == "normal":
+		highscores = highscores_normal
+	elif difficulty == "hard":
+		highscores = highscores_hard
+
+	if highscores.size() > 0:
+		return highscores[0]  # Der beste Score ist der erste Eintrag in der sortierten Liste
+	return {} # Keine Highscores vorhanden
+
+
+	
 func load_from_file() -> void:
-	var file = FileAccess.open("user://highscore.json", FileAccess.READ)
+	var file_path = "user://highscore_%s.json" % difficulty
+	var file = FileAccess.open(file_path, FileAccess.READ)
 	if file:
 		var data = file.get_as_text()
 		if data != "":
-			highscores = JSON.parse_string(data)
-			if typeof(highscores) != TYPE_ARRAY:
-				highscores = []  # Fallback, falls die Daten keine gültige Liste sind
+			var current_highscores = JSON.parse_string(data)
+			if typeof(current_highscores) != TYPE_ARRAY:
+				current_highscores = []  # Fallback, falls die Daten keine gültige Liste sind
 			else:
-				highscores.sort_custom(_compare_scores)
-				print(highscores)
+				current_highscores.sort_custom(_compare_scores)
+				print(current_highscores)
+			
+			if difficulty == "normal":
+				highscores_normal = current_highscores
+			elif difficulty == "hard":
+				highscores_hard = current_highscores
 		file.close()
 		
 		
+
+func load_from_file_for_difficulty(difficulty: String) -> void:
+	var file_path = "user://highscore_%s.json" % difficulty
+	var file = FileAccess.open(file_path, FileAccess.READ)
+	if file:
+		var data = file.get_as_text()
+		if data != "":
+			var current_highscores = JSON.parse_string(data)
+			if typeof(current_highscores) != TYPE_ARRAY:
+				current_highscores = []  # Fallback, falls die Daten keine gültige Liste sind
+			else:
+				current_highscores.sort_custom(_compare_scores)
+				print(current_highscores)
+			
+			if difficulty == "normal":
+				highscores_normal = current_highscores
+			elif difficulty == "hard":
+				highscores_hard = current_highscores
+		file.close()
 		
+		
+
 		
 func _compare_scores(a: Dictionary, b: Dictionary) -> int:
 	# Vergleichsfunktion zum Sortieren der Highscores
 	var time_a = a["minutes"] * 60000 + a["seconds"] * 1000 + a["msec"]
 	var time_b = b["minutes"] * 60000 + b["seconds"] * 1000 + b["msec"]
-	return time_a - time_b 
+	
+	if time_a < time_b:
+		return true
+	return false
 
 
 

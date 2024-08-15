@@ -1,19 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://cl6nwjw0pooxi"]
+[gd_scene load_steps=10 format=3 uid="uid://cl6nwjw0pooxi"]
 
 [ext_resource type="Script" path="res://game_menu.gd" id="1_mpfkr"]
 [ext_resource type="Theme" uid="uid://bhdofd1qu67k4" path="res://Theme.tres" id="1_odbit"]
 [ext_resource type="Texture2D" uid="uid://djr5hpp3xpt56" path="res://Assets/protüp.png" id="1_yxfsa"]
 [ext_resource type="Texture2D" uid="uid://15ou5a27aa6a" path="res://Assets/Button-klein-2.png" id="2_424t6"]
 [ext_resource type="Texture2D" uid="uid://dv2uqts4r07bu" path="res://Assets/ButtonHover-klein-2.png" id="3_dgjsf"]
+[ext_resource type="Texture2D" uid="uid://b4cgiow2jvjr5" path="res://Assets/DALL·E 2024-08-14 10.24.27 - A subtle, stylized starry sky background in a fullscreen horizontal format, with dark, jagged mountains added in the foreground instead of hills. The .webp" id="4_f0hut"]
 [ext_resource type="FontFile" uid="uid://c5oopxdb5cqu7" path="res://fonts/star-wars-fonts/fonts/ThemiruTrialRegular-JRgXj.ttf" id="6_hvpt3"]
-
-[sub_resource type="Animation" id="Animation_ret74"]
-resource_name = "slide_in"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_315oc"]
-_data = {
-"slide_in": SubResource("Animation_ret74")
-}
+[ext_resource type="Theme" uid="uid://ihl6trp21nku" path="res://button_style.tres" id="8_kcv8l"]
+[ext_resource type="Theme" uid="uid://bfrt6glwap1w1" path="res://leaderboard_theme.tres" id="9_hha0m"]
 
 [node name="GameMenu" type="Control"]
 layout_mode = 3
@@ -24,8 +19,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_odbit")
 script = ExtResource("1_mpfkr")
+metadata/_edit_horizontal_guides_ = [563.0]
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,6 +32,18 @@ offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_yxfsa")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_f0hut")
+expand_mode = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -62,21 +71,15 @@ theme_override_font_sizes/font_size = 55
 text = "project_boost"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_constants/separation = 10
 metadata/_edit_use_anchors_ = true
 
-[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-placeholder_text = "enter your name"
-
 [node name="Normal" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("2_424t6")
 texture_hover = ExtResource("3_dgjsf")
@@ -148,10 +151,315 @@ grow_vertical = 2
 text = "BACK
 "
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_315oc")
-}
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 269
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/minimum_character_width = 7
+theme_override_font_sizes/font_size = 20
+placeholder_text = "name"
+alignment = 1
+caret_blink = true
+
+[node name="Control27" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control28" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control29" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control30" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control31" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control32" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control33" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Normal" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("8_kcv8l")
+theme_type_variation = &"FlatButton"
+text = "easy ride"
+
+[node name="Control" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control5" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control6" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control7" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control8" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control9" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control10" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control11" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control12" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control13" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Hard" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("8_kcv8l")
+theme_type_variation = &"FlatButton"
+text = "adventure"
+
+[node name="Control14" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control15" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control16" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control17" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control18" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control19" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control20" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control21" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control22" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control23" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control24" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control25" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control34" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("8_kcv8l")
+theme_type_variation = &"FlatButton"
+text = "back"
+
+[node name="Control26" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control35" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control36" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control37" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control38" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control39" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control40" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control41" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control42" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control43" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control44" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control45" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control46" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control47" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Control5" type="Control" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="highscores_button" type="Button" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+focus_mode = 0
+theme = ExtResource("9_hha0m")
+text = "highscores"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="highscores_small" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+offset_left = 843.0
+offset_top = 95.0
+offset_right = 1102.0
+offset_bottom = 232.0
+theme = ExtResource("9_hha0m")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/highscores_small"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/highscores_small/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="easy_ride" type="Label" parent="CanvasLayer/highscores_small/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "easy ride"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/highscores_small/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="easy_name" type="Label" parent="CanvasLayer/highscores_small/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "player"
+
+[node name="Control" type="Control" parent="CanvasLayer/highscores_small/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="top_score_easy_label" type="Label" parent="CanvasLayer/highscores_small/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00:00.00"
+
+[node name="Control" type="Control" parent="CanvasLayer/highscores_small/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasLayer/highscores_small/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="CanvasLayer/highscores_small/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="CanvasLayer/highscores_small/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control5" type="Control" parent="CanvasLayer/highscores_small/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control6" type="Control" parent="CanvasLayer/highscores_small/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control7" type="Control" parent="CanvasLayer/highscores_small/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control8" type="Control" parent="CanvasLayer/highscores_small/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="adventures" type="Label" parent="CanvasLayer/highscores_small/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "adventures"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/highscores_small/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="hard_name" type="Label" parent="CanvasLayer/highscores_small/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "player"
+
+[node name="Control" type="Control" parent="CanvasLayer/highscores_small/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="top_score_hard_label" type="Label" parent="CanvasLayer/highscores_small/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00:00.00"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Normal" to="." method="_on_normal_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer3/Normal" to="." method="_on_normal_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer3/Hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer3/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/highscores_button" to="." method="_on_highscores_button_pressed"]

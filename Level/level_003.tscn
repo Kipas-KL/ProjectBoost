@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://djk41gw2bfrv2"]
 
 [ext_resource type="PackedScene" uid="uid://wpy3of26ra3g" path="res://player.tscn" id="1_4om8e"]
-[ext_resource type="Theme" uid="uid://d0oy6wnhurja0" path="res://new_theme.tres" id="2_8536a"]
+[ext_resource type="Theme" uid="uid://bgvodncge84mi" path="res://Level/level_001.tres" id="2_3aq6l"]
 [ext_resource type="Script" path="res://Level/landingzone.gd" id="3_dk0qi"]
 [ext_resource type="PackedScene" uid="uid://4ekfyss4eyjq" path="res://landingpad_2.tscn" id="4_cmg8o"]
 [ext_resource type="PackedScene" uid="uid://dpxqtxwdsn27d" path="res://LevelParts/launch.tscn" id="5_eox2e"]
@@ -65,7 +65,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_8536a")
+theme = ExtResource("2_3aq6l")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
@@ -88,7 +88,7 @@ size_flags_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "Level"
+text = "level"
 
 [node name="Control" type="Control" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2

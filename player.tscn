@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://wpy3of26ra3g"]
+[gd_scene load_steps=28 format=3 uid="uid://wpy3of26ra3g"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_5gotk"]
 [ext_resource type="AudioStream" uid="uid://bxnc7u486n32b" path="res://Audio/SFX - Death Explosion.ogg" id="2_ygndw"]
@@ -12,7 +12,7 @@
 [ext_resource type="Material" uid="uid://drkgh754y2l06" path="res://ShipBlueMaterial.tres" id="9_duuak"]
 [ext_resource type="PackedScene" uid="uid://vb4i1dbr80fr" path="res://pause.tscn" id="11_57alq"]
 [ext_resource type="Script" path="res://panel.gd" id="12_68to0"]
-[ext_resource type="FontFile" uid="uid://cbuiyewalt8qy" path="res://fonts/glitch-inside-font/GlitchInside-0Wjro.otf" id="12_sugey"]
+[ext_resource type="Theme" uid="uid://bfrt6glwap1w1" path="res://leaderboard_theme.tres" id="13_f35si"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_dmsd6"]
 
@@ -77,9 +77,6 @@ height = 0.04
 inner_radius = 0.46
 outer_radius = 0.355
 
-[sub_resource type="Theme" id="Theme_c2kms"]
-default_font = ExtResource("12_sugey")
-
 [node name="Player" type="RigidBody3D"]
 axis_lock_linear_z = true
 axis_lock_angular_x = true
@@ -101,14 +98,20 @@ shape = SubResource("CylinderShape3D_w2lsj")
 [node name="ExplosionAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("2_ygndw")
+volume_db = -11.0
+bus = &"sfx"
 
 [node name="SuccessAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_e3vvb")
+volume_db = -14.0
+bus = &"sfx"
 
 [node name="RocketAudio" type="AudioStreamPlayer3D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_7icow")
+volume_db = -5.0
+bus = &"sfx"
 
 [node name="BoosterParticles" parent="." instance=ExtResource("5_7vho3")]
 unique_name_in_owner = true
@@ -215,53 +218,54 @@ mesh = SubResource("TorusMesh_ltw2h")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("11_57alq")]
+visible = false
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -98.0
-offset_top = 9.0
-offset_right = -22.0
-offset_bottom = 31.0
+offset_left = -129.0
+offset_top = 38.0
+offset_right = -31.0
+offset_bottom = 63.0
 grow_horizontal = 0
 script = ExtResource("12_68to0")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -27.0
-offset_top = -11.5
-offset_right = 38.0
-offset_bottom = 11.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_c2kms")
+theme_override_constants/margin_left = 10
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Panel/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("13_f35si")
 theme_override_constants/separation = 0
 
-[node name="Minutes" type="Label" parent="CanvasLayer/Panel/HBoxContainer"]
+[node name="Minutes" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("13_f35si")
 text = "00:"
-horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Seconds" type="Label" parent="CanvasLayer/Panel/HBoxContainer"]
+[node name="Seconds" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "00."
-horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Msecs" type="Label" parent="CanvasLayer/Panel/HBoxContainer"]
+[node name="Msecs" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "00"
-horizontal_alignment = 2
 vertical_alignment = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

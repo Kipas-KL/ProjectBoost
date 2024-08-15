@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7yq43l1wasfw"]
+
+[ext_resource type="AudioStream" uid="uid://c8kkgf7dssklu" path="res://Audio/8bit Dungeon Boss.mp3" id="1_eq2bc"]
+[ext_resource type="Script" path="res://bn_music.gd" id="2_duaxl"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_eq2bc")
+volume_db = -15.0
+bus = &"Music"
+parameters/looping = true
+script = ExtResource("2_duaxl")

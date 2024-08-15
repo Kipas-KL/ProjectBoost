@@ -93,7 +93,7 @@ size_flags_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "Level"
+text = "level"
 
 [node name="Control" type="Control" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -206,4 +206,4 @@ mesh = ExtResource("8_4x12c")
 skeleton = NodePath("../..")
 
 [node name="Plattform_007" parent="." groups=["Hazard"] instance=ExtResource("9_jeeo8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50213, 4.66046, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50213, 4.864, 0)

@@ -89,7 +89,7 @@ size_flags_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "Level"
+text = "level"
 
 [node name="Control" type="Control" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -207,4 +207,4 @@ fov = 48.7
 [node name="MovingHazard" parent="." groups=["Hazard"] instance=ExtResource("9_pv3ss")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68061, 0)
 destination = Vector3(-8, 0, 0)
-duration = 3.0
+duration = 4.0

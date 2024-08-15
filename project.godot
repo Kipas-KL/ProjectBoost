@@ -10,15 +10,18 @@ config_version=5
 
 [application]
 
-config/name="ProjectBoost"
+config/name="Project_Boost"
 run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.148904, 0.0949, 0.290125, 1)
+boot_splash/image="res://Assets/aicon_rocket.png"
+config/windows_native_icon="res://Assets/favicon.ico"
 
 [autoload]
 
 Globalstate="*res://globalstate.gd"
 GlobalTimer="*res://timer.gd"
+BnMusic="*res://bn_music.tscn"
 
 [display]
 

@@ -88,7 +88,7 @@ size_flags_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "Level"
+text = "level"
 
 [node name="Control" type="Control" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2

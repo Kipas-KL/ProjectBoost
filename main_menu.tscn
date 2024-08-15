@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8gvtv0nosgct"]
+[gd_scene load_steps=14 format=3 uid="uid://c8gvtv0nosgct"]
 
 [ext_resource type="Theme" uid="uid://bhdofd1qu67k4" path="res://Theme.tres" id="1_2jprm"]
 [ext_resource type="Texture2D" uid="uid://djr5hpp3xpt56" path="res://Assets/protüp.png" id="1_kftuy"]
@@ -6,6 +6,37 @@
 [ext_resource type="Texture2D" uid="uid://15ou5a27aa6a" path="res://Assets/Button-klein-2.png" id="2_s2l3p"]
 [ext_resource type="Texture2D" uid="uid://dv2uqts4r07bu" path="res://Assets/ButtonHover-klein-2.png" id="3_1it73"]
 [ext_resource type="FontFile" uid="uid://c5oopxdb5cqu7" path="res://fonts/star-wars-fonts/fonts/ThemiruTrialRegular-JRgXj.ttf" id="4_wd2rb"]
+[ext_resource type="FontFile" uid="uid://cujnvjrvk8y4" path="res://fonts/andromeda-font/Andromeda-eR2n.ttf" id="7_b8xb5"]
+[ext_resource type="Texture2D" uid="uid://dbf2d0mmen2i2" path="res://Assets/ButtonHover_2.png" id="8_sxrrt"]
+[ext_resource type="Texture2D" uid="uid://b1auxc8wwmf1i" path="res://Assets/Button_2.png" id="9_stx6a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y6j7y"]
+texture = ExtResource("8_sxrrt")
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x6plp"]
+texture = ExtResource("9_stx6a")
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qes6v"]
+texture = ExtResource("8_sxrrt")
+expand_margin_left = 18.0
+expand_margin_top = 18.0
+expand_margin_right = 18.0
+expand_margin_bottom = 18.0
+
+[sub_resource type="Theme" id="Theme_jf8s1"]
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("7_b8xb5")
+Button/styles/hover = SubResource("StyleBoxTexture_y6j7y")
+Button/styles/normal = SubResource("StyleBoxTexture_x6plp")
+Button/styles/pressed = SubResource("StyleBoxTexture_qes6v")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -52,6 +83,7 @@ theme_override_font_sizes/font_size = 55
 text = "project_boost"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -141,6 +173,119 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "EXIT"
 
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 269
+theme_override_constants/margin_right = 927
+theme_override_constants/margin_bottom = 55
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="start" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+focus_mode = 0
+theme = SubResource("Theme_jf8s1")
+theme_type_variation = &"FlatButton"
+text = "start"
+
+[node name="Control" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control5" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control6" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control7" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control8" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control9" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control10" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control11" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control12" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control13" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="rules" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+focus_mode = 0
+theme = SubResource("Theme_jf8s1")
+theme_type_variation = &"FlatButton"
+text = "rules"
+
+[node name="Control14" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control15" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control16" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control17" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control18" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control19" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control20" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control21" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control22" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control23" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control24" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control25" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Control26" type="Control" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Exit" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+focus_mode = 0
+theme = SubResource("Theme_jf8s1")
+theme_type_variation = &"FlatButton"
+text = "exit"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer3/start" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer3/rules" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer3/Exit" to="." method="_on_quit_button_pressed"]

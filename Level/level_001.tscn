@@ -1,17 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://chto76toc2m5x"]
+[gd_scene load_steps=14 format=3 uid="uid://chto76toc2m5x"]
 
+[ext_resource type="Theme" uid="uid://bgvodncge84mi" path="res://Level/level_001.tres" id="2_0i8l5"]
 [ext_resource type="PackedScene" uid="uid://wpy3of26ra3g" path="res://player.tscn" id="2_nmac7"]
-[ext_resource type="FontFile" uid="uid://cujnvjrvk8y4" path="res://fonts/andromeda-font/Andromeda-eR2n.ttf" id="2_sn5g5"]
 [ext_resource type="PackedScene" uid="uid://4ekfyss4eyjq" path="res://landingpad_2.tscn" id="5_2c30w"]
 [ext_resource type="PackedScene" uid="uid://dpxqtxwdsn27d" path="res://LevelParts/launch.tscn" id="5_gvvnn"]
 [ext_resource type="Script" path="res://Level/landingzone.gd" id="5_s6qic"]
 [ext_resource type="ArrayMesh" uid="uid://c5vg0t0ushbnj" path="res://Assets/LevelWorld_01.res" id="6_wuut8"]
 [ext_resource type="ArrayMesh" uid="uid://cp3axa5n2o8q0" path="res://Assets/mountin.res" id="7_0jqce"]
 [ext_resource type="ArrayMesh" uid="uid://c7kxqi7jimegn" path="res://Assets/clouds.res" id="8_pa2qj"]
-
-[sub_resource type="Theme" id="Theme_ceskw"]
-default_font = ExtResource("2_sn5g5")
-default_font_size = 35
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_peyen"]
 height = 0.2
@@ -68,7 +64,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_ceskw")
+theme = ExtResource("2_0i8l5")
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
@@ -104,10 +100,10 @@ layout_mode = 2
 text = "001
 "
 
-[node name="Landingzone" type="StaticBody3D" parent="." groups=["Win"]]
+[node name="Landingzone" type="StaticBody3D" parent="." groups=["Goal"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133938, 0.128714, 0)
 script = ExtResource("5_s6qic")
-file_path = "res://player_win.tscn"
+file_path = "res://Level/level_002.tscn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Landingzone"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.99365, 0.726423, 0)
